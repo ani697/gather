@@ -7,13 +7,14 @@ let payload = {
     job : "leader"
 }
 
-  
-// const  gatherUser = new GatherCall('GET', 'https://reqres.in/api/users');
-// const  gatherPostUser = new GatherCall('POST', 'https://reqres.in/api/users', payload);
-// gatherUser.getCall.then((res) => console.log('resUser ',res))
-// gatherPostUser.postCall.then((res) => console.log('resPOSTUser ',res))
+
+function gather(type, url, payload, headers){
+    let gatherUser =  new GatherCall(type, url, payload, headers)
+    return gatherUser[type]
+}
+
+//gather('post', 'https://reqres.in/api/users', payload).then(val => console.log('val ',val))
+
+module.exports = gather
 
 
-
-
-//gather();
